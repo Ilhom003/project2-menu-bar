@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html{
+    overflow: hidden;
+    background: deeppink;
+}
+.container{
+    position: fixed;
+    width: 80px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-right-radius: 50%;
+    transition: .3s;
+}
+ul li{
+    list-style: none;
+    color: deeppink;
+    font-family: tahoma;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform .6s;
+}
+ul li:hover{
+    color: black;
+}
+input{
+    display: none;
+}
+label{
+    z-index: 99;
+    position: fixed;
+    top: 5px;left: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+label > div{
+    height: 5px;
+    width: 35px;
+    margin: 5px;
+    background-color: deeppink;
+    transition:transform .3s;
+}
+label:hover > div{
+    background: black;
+}
+#toggle-nav:checked ~ .container{
+    height: 100vh;
+    width: 280px;
+}
+#toggle-nav:checked ~ label{
+    left: 210px;
+}
+#toggle-nav:checked ~ label > div:nth-child(1){
+    transform: rotateZ(45deg);
+    margin-top: 18px;
+}
+#toggle-nav:checked ~ label > div:nth-child(3){
+    transform: rotateZ(-45deg);
+    margin-top: -20px;
+}
+#toggle-nav:checked ~ label > div:nth-child(2){
+    opacity:0 ;
+}
+#toggle-nav:checked ~.container ul li{
+    transform: translateY(0px);
+    opacity: 1;
+}
